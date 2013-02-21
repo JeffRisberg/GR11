@@ -11,17 +11,20 @@
   };
   
   window.ChallengesRowView = Backbone.View.extend({
-
     tagName: "li",
 
+    // Instead of generating a new element, bind to the existing skeleton of
+    // the App already present in the HTML.
+    el: $('#challenge-list'),
+    
     // Cache the template function for a single item.
     template: _.template($('#challengesRow-template').html()),
 
     // The DOM events specific to a challenge.
     events: {     
-      "dblclick div.challenge-message" : "edit",
-      "click span.challenge-destroy"   : "clear",
-      "keypress .challenge-input"      : "updateOnEnter"
+      //"dblclick div.challenge-message" : "edit",
+      //"click span.challenge-destroy"   : "clear",
+      //"keypress .challenge-input"      : "updateOnEnter"
     },
 
     // The ChallengesView listens for changes to its model, re-rendering.
@@ -32,8 +35,7 @@
 
     // Re-render the contents of the challenge
     render: function() {    
-      $(this.el).html(this.template(this.model.toJSON()));
-      this.setName();
+      $(this.el).append(this.template(this.model.toJSON()));
       return this;
     },
 
@@ -74,14 +76,20 @@
   
   window.ChallengesView = Backbone.View.extend({
 
+    initialize: function() {
+      this.base = $('#challenge-list');  
+    },
+    
+    render: function() {  
+      var self=this;
+      return self.el;
+    },  
+    
     updateFrom: function(collection) {  
       this.base.empty();
-      var noLimit = 0;
-      var totalEarned = 0;
-      var totalMax = 0;
-            
+               
       var self=this;
-      collection.each(function(i) {         
+      collection.each(function(i) {      
         var challengesRowView = new ChallengesRowView({model: i});       
         self.base.append(challengesRowView.render());                   
       });        

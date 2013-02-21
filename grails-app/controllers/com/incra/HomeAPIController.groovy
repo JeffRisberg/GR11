@@ -6,11 +6,12 @@ import grails.converters.JSON
  * Handles AJAX requests from the backbone.js front-end
  * 
  * @author Jeffrey Risberg
- * @since January 2013
+ * @since February 2013
  */
-class ActivityAPIController {
+class HomeAPIController {
 
   ActivityService activityService
+  ChallengeService challengeService
 
   def index = {
     println "index"

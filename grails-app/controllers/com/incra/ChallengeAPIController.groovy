@@ -6,7 +6,7 @@ import grails.converters.JSON
  * Handles AJAX requests from the backbone.js front-end
  * 
  * @author Jeffrey Risberg
- * @since January 2012
+ * @since January 2013
  */
 class ChallengeAPIController {
 
