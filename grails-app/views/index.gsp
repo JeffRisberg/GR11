@@ -6,8 +6,8 @@
     <meta name="layout" content="main">
     <script type="text/javascript" src="<g:createLinkTo dir='js/models' file='challenge.js' />" ></script> 
     <script type="text/javascript" src="<g:createLinkTo dir='js/models' file='activity.js' />" ></script> 
-    <script type="text/javascript" src="<g:createLinkTo dir='js/views'  file='challenge.js' />" ></script> 
-    <script type="text/javascript" src="<g:createLinkTo dir='js/views'  file='activity.js' />" ></script> 
+    <script type="text/javascript" src="<g:createLinkTo dir='js/views'  file='challenges.js' />" ></script> 
+    <script type="text/javascript" src="<g:createLinkTo dir='js/views'  file='activities.js' />" ></script> 
     <script type="text/javascript" src="<g:createLinkTo dir='js'        file='app.js' />" ></script>    
   </head>
 
@@ -19,46 +19,17 @@
       <div class="content">
         <img src="/GR11/images/logo.png" /> 
     
-        <div id="select-activity">
-          <a id="show-activities" class="btn" href="#">Show Activities &raquo; </a>
-          <a id="show-challenges" class="btn" href="#">Show Challenges &raquo; </a>
+        <!-- top level menu -->
+        <div id="menu">
+          <a id="activities_button" class="btn" href="#">Activities</a>
+          <a id="challenges_button" class="btn" href="#">Challenges</a>
         </div>
         
-        <div id="activities">
-          <ul id="activity-list"></ul>
-        </div>      
-
-        <div id="challenges">
-          <ul id="challenge-list"></ul>
-        </div>
-        
-        <div id="create-challenge">
-          <input id="new-challenge" placeholder="Ready for a challenge?" type="text" />
-          <span class="ui-tooltip-top" style="display:none;">Press Enter to create this challenge</span>
-        </div>
+        <!-- panels begin here -->
+        <g:include view="_activities.gsp"/>
+        <g:include view="_challenges.gsp"/> 
       </div>
     </div>
-
-    <!-- Templates -->
-
-    <script type="text/template" id="challenge-template">
-      <div class="challenge">
-        <div class="display">          
-          <div class="challenge-name">{{ name }}</div>
-          <span class="challenge-destroy"></span>
-        </div>        
-      </div>
-    </script>
-
-    <script type="text/template" id="activity-template">
-      <div class="activity">
-        <div class="display">          
-          <div class="activity-name">{{ name }}</div>
-          <span class="activity-destroy"></span>
-        </div>       
-      </div>
-    </script>
-
   </body>
 
 </html>
