@@ -19,7 +19,7 @@
 
 <script type="text/template" id="activitiesRow-template">
   <tr>
-    <td class="activity"><a href="#">{{ name }}</a></td>
+    <td class="activity">{{ name }}</td>
     <td class="desc">{{ description }}</td>
     <td class="activity-destroy">Action</td>
   </tr>

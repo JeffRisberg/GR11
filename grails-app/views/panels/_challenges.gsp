@@ -19,7 +19,7 @@
 
 <script type="text/template" id="challengesRow-template">
   <tr>
-    <td class="challenge"><a href="#>{{ name }}</a></td>
+    <td class="challenge">{{ name }}</td>
     <td class="desc">{{ description }}</td>
     <td class="challenge-destroy">Action</td>
   </tr>

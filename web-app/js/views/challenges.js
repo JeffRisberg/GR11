@@ -24,8 +24,14 @@
       //"dblclick div.challenge-message" : "edit",
       //"click span.challenge-destroy"   : "clear",
       //"keypress .challenge-input"      : "updateOnEnter"
+      "click td" :  "viewOneChallenge"
     },
 
+    viewOneChallenge : function(ev) {
+      console.log($(ev.currentTarget));
+      //alert("View");
+    },
+    
     // The ChallengesView listens for changes to its model, re-rendering.
     initialize: function() {
       this.model.bind('change', this.render, this);

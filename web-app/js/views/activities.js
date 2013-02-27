@@ -24,7 +24,7 @@
       //"dblclick div.activity-message" : "edit",
       //"click span.activity-destroy"   : "clear",
       //"keypress .activity-input"      : "updateOnEnter",
-      "click td a" :  "viewOneActivity"
+      "click td" :  "viewOneActivity"
     },
 
     viewOneActivity : function() {
