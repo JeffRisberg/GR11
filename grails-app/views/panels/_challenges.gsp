@@ -2,7 +2,7 @@
 	 <h1>This is the Challenges Panel</h1>
 	 
 	 <div style="background: #eee; width: 400px; margin: 20px 0px">
-	   <ul id="challenge-list"></ul>
+	   <table id="challenge-table"></table>
 	 </div>      
 	 
 	 <div id="create-challenge">
@@ -18,10 +18,9 @@
 <!-- Templates -->
 
 <script type="text/template" id="challengesRow-template">
-  <div class="challenge">
-    <div class="display">          
-      <div class="challenge-name">{{ name }}</div>
-      <span class="challenge-destroy"></span>
-    </div>       
-  </div>
+  <tr>
+    <td class="challenge"><a href="#>{{ name }}</a></td>
+    <td class="desc">{{ description }}</td>
+    <td class="challenge-destroy">Action</td>
+  </tr>
 </script>

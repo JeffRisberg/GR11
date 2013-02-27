@@ -10,12 +10,11 @@
       evaluate : /\{!(.+?)!\}/g
   };
   
-  window.ChallengesRowView = Backbone.View.extend({
-    tagName: "li",
+  window.ChallengesRowView = Backbone.View.extend({    
 
     // Instead of generating a new element, bind to the existing skeleton of
     // the App already present in the HTML.
-    el: $('#challenge-list'),
+    el: $('#challenge-table'),
     
     // Cache the template function for a single item.
     template: _.template($('#challengesRow-template').html()),
@@ -77,7 +76,7 @@
   window.ChallengesView = Backbone.View.extend({
 
     initialize: function() {
-      this.base = $('#challenge-list');  
+      this.base = $('#challenge-table');  
     },
     
     render: function() {  
