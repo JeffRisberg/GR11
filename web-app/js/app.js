@@ -27,10 +27,16 @@ $(function(){
           
       this.homeView = new HomeView();  
       this.trackView = new TrackView();  
-      this.activitiesView = new ActivitiesView();    
+      this.activitiesView = new ActivitiesView({collection:this.activities});    
       this.challengesView = new ChallengesView();
            
       this.showHome(); 
+      
+      _.templateSettings = {//this goes to global, here is global is the window obj. 
+    	      interpolate : /\{\{(.+?)\}\}/g,
+    	      evaluate : /\{!(.+?)!\}/g
+    	  };
+    	  
        
       //alert("end AppView init");
     },
@@ -71,8 +77,9 @@ $(function(){
       $("#activities_panel").show();     
       $("#menu a").removeClass("active");
       $("#activities_button").addClass("active");
+      $('#activity-tbody').html( self.activitiesView.render().$el);
        
-      self.activitiesView.updateFrom(self.activities);
+     // self.activitiesView.updateFrom(self.activities);
     },
     
     showChallenges: function() {

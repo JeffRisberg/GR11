@@ -1,8 +1,18 @@
 <div id="activities_panel" class="panel">
   <h1>This is the Activities Panel</h1>
-  
   <div style="background: #eee; width: 400px; margin: 20px 0px">
-    <ul id="activity-list"></ul>
+    <table id="activity-list">
+	  	<thead>
+	  		<tr>
+	  		<th>name</th>
+	  		<th>description</th>
+	  		</tr>
+	  	</thead>
+	  	<tbody id="activity-tbody">
+	  		
+	  	</tbody>
+ 	 </table>
+  
   </div>      
   
   <div id="create-activity">
@@ -18,10 +28,5 @@
 <!-- Templates -->
 
 <script type="text/template" id="activitiesRow-template">
-  <div class="activity">
-    <div class="display">          
-      <div class="activity-name">{{ name }}</div>
-      <span class="activity-destroy"></span>
-    </div>       
-  </div>
+<td class="name">{{name}}</td><td>{{description}}</td>
 </script>
