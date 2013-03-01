@@ -17,18 +17,19 @@ class BootStrap {
     ChallengeActivity challengeActivity
     ChallengeTeam challengeTeam
 
-    activity = new Activity(name: "Walking")
+    activity = new Activity(name: "Walking", description: "Walking Desc")
     activity.save()
-    activity = new Activity(name: "Hiking")
+    activity = new Activity(name: "Hiking", description: "Hiking Desc")
     activity.save()
-    activity = new Activity(name: "Biking")
+    activity = new Activity(name: "Biking", description: "Biking Desc")
     activity.save()
-    activity = new Activity(name: "Martial Arts")
+    activity = new Activity(name: "Martial Arts", description: "Martial Arts Desc")
     activity.save()
-    activity = new Activity(name: "Treadmill")
+    activity = new Activity(name: "Treadmill", description: "Treadmill Desc")
     activity.save()
 
-    challenge = new Challenge(name: "The Bike Race", startDate: now, endDate: nowPlus30)
+    challenge = new Challenge(name: "The Bike Race", description: "Get your bike gear in shape!",
+    startDate: now, endDate: nowPlus30)
     activity = Activity.findByName("Biking")
     challengeActivity = new ChallengeActivity(challenge: challenge, activity: activity)
     challenge.addToActivities(challengeActivity)
@@ -37,7 +38,8 @@ class BootStrap {
     challenge.addToActivities(challengeActivity)
     challenge.save()
 
-    challenge = new Challenge(name: "Walk Around the Block", startDate: nowPlus4, endDate: nowPlus40)
+    challenge = new Challenge(name: "Walk Around the Block", description: "Walking is fun",
+    startDate: nowPlus4, endDate: nowPlus40)
     activity = Activity.findByName("Walking")
     challengeActivity = new ChallengeActivity(challenge: challenge, activity: activity)
     challenge.addToActivities(challengeActivity)

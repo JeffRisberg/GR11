@@ -10,12 +10,11 @@
       evaluate : /\{!(.+?)!\}/g
   };
   
-  window.ChallengesRowView = Backbone.View.extend({
-    tagName: "li",
+  window.ChallengesRowView = Backbone.View.extend({    
 
     // Instead of generating a new element, bind to the existing skeleton of
     // the App already present in the HTML.
-    el: $('#challenge-list'),
+    el: $('#challenge-table'),
     
     // Cache the template function for a single item.
     template: _.template($('#challengesRow-template').html()),
@@ -25,8 +24,14 @@
       //"dblclick div.challenge-message" : "edit",
       //"click span.challenge-destroy"   : "clear",
       //"keypress .challenge-input"      : "updateOnEnter"
+      "click td" :  "viewOneChallenge"
     },
 
+    viewOneChallenge : function(ev) {
+      console.log($(ev.currentTarget));
+      //alert("View");
+    },
+    
     // The ChallengesView listens for changes to its model, re-rendering.
     initialize: function() {
       this.model.bind('change', this.render, this);
@@ -77,7 +82,7 @@
   window.ChallengesView = Backbone.View.extend({
 
     initialize: function() {
-      this.base = $('#challenge-list');  
+      this.base = $('#challenge-table');  
     },
     
     render: function() {  
