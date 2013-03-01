@@ -15,7 +15,7 @@ $(function() {
 		template : _.template($('#activitiesRow-template').html()),
 		// Re-render the contents of the activity
 		render : function() {
-			this.$el.append(this.template(this.modelData));// change to html in future
+			this.$el.html(this.template(this.modelData));// change to html in future
 			return this;
 		},
 
@@ -34,12 +34,14 @@ $(function() {
 	ActivitiesView = Backbone.View.extend({
 
 		initialize : function() {
-			 this.base = $('#activity-tbody');
+		//	 this.base = $('#activity-tbody');
 		},
 		tagName : "tbody",
 		// will be passed in through calling constructor
 		render : function() {
 			var self = this;
+			//console.log(this);
+			//console.log(this.collection);
 			this.collection.each(function(i) {
 				var activitiesRowView = new ActivitiesRowView({
 					model : i

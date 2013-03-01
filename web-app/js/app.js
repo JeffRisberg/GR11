@@ -27,7 +27,8 @@ $(function(){
           
       this.homeView = new HomeView();  
       this.trackView = new TrackView();  
-      this.activitiesView = new ActivitiesView({collection:this.activities});    
+      
+     
       this.challengesView = new ChallengesView();
            
       this.showHome(); 
@@ -77,8 +78,9 @@ $(function(){
       $("#activities_panel").show();     
       $("#menu a").removeClass("active");
       $("#activities_button").addClass("active");
-      $('#activity-tbody').html( self.activitiesView.render().$el);
-       
+      
+      this.activitiesView = new ActivitiesView({collection:this.activities});       
+      $('#activity-tbody').html( this.activitiesView.render().$el);
      // self.activitiesView.updateFrom(self.activities);
     },
     
