@@ -50,7 +50,7 @@
  <div class="modal">
     <div class="modal-header"><h3>Edit {{name}}</h3></div>
     <div class="modal-body">
-         Description: <input id="description" type="text" value={{description}}></input>
+         Description: <input id="description" type="text" value="{{description}}"></input>
     </div>
     <div class="modal-footer">
      <a class="btn" id="save">Save</a>

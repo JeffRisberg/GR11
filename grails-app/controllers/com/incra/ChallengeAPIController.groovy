@@ -28,20 +28,21 @@ class ChallengeAPIController {
   def show = {
     println "show " + params.id
     def challenge = Challenge.findById(params.id)
-    render(challenge as JSON );
+    render( challenge as JSON );
   }
 
   def delete = {
     println "delete " + params.id
     def challenge = Challenge.findById(params.id)
     challenge?.delete()
-    render(challenge as JSON );
+    render( challenge as JSON );
   }
 
   def update = {
     println "update " + params.id
     def challenge = Challenge.findById(params.id)
-    bindData(challenge, request.JSON)
-    render(challenge.save() as JSON )
+    println request.JSON
+    bindData(challenge, request.JSON, [exclude: ['startDate', 'endDate']])
+    render( challenge.save() as JSON )
   }
 }

@@ -21,8 +21,8 @@ class Challenge {
     StringBuffer sb = new StringBuffer()
 
     sb.append("Challenge[name=" + name)
-    sb.append("activities=" + activities)
-    sb.append("teams=" + teams)
+    sb.append(", activities=" + activities)
+    sb.append(", teams=" + teams)
     sb.append("]")
 
     sb.toString()

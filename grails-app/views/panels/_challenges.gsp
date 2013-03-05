@@ -28,14 +28,14 @@
 <!-- Templates -->
 
 <script type="text/template" id="challengesRow-template">  
-    <td class="challenge">{{ name }}</td>
+    <td class="name">{{ name }}</td>
     <td class="desc">{{ description }}</td>
     <td class="challenge-destroy">Delete</td> 
 </script>
 
 <script type="text/template" id="challengeShowModal-template">
   <div class="modal">
-    <div class="modal-header"><h3>Show {{name}}</h3></div>
+    <div class="modal-header"><h3>{{name}}</h3></div>
     <div class="modal-body">
           Description:  {{description}}
     </div>
@@ -46,11 +46,11 @@
   </div>
 </script>
 
-<script type="text/template" id="chllengeEditModal-template">
+<script type="text/template" id="challengeEditModal-template">
  <div class="modal">
     <div class="modal-header"><h3>Edit {{name}}</h3></div>
     <div class="modal-body">
-         Description: <input id="description" type="text" value={{description}}></input>
+         Description: <input id="description" type="text" value="{{description}}"></input>
     </div>
     <div class="modal-footer">
      <a class="btn" id="save">Save</a>

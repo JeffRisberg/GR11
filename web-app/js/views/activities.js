@@ -4,7 +4,7 @@
 
 $(function() {
   /**
-   * handles show and edit of an activity
+   * Handles show and edit of an activity
    */
 	ActivityModalView = Backbone.View.extend({
 		initialize: function() {

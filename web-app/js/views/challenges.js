@@ -2,13 +2,39 @@
  * Contains ChallengesView and ChallengesRowView
  */
  
- $(function(){
-
-  // this sets up the marker strings needed for interpolating {{ }} and evaluation {! !}
-  _.templateSettings = {
-      interpolate : /\{\{(.+?)\}\}/g,
-      evaluate : /\{!(.+?)!\}/g
-  };
+ $(function() {
+  /**
+   * Handles show and edit of an challenge
+   */
+  ChallengeModalView = Backbone.View.extend({
+    initialize: function() {
+      $(document.body).append(this.$el);
+      this.model.on("change", this.show, this); //upon model change, rerender view;
+    },
+    events: {
+      'click #close' : 'close',
+      'click #edit'  : 'edit',
+      'click #save'  : 'save',
+    },
+    show: function() {
+      var template = _.template($("#challengeShowModal-template").html());
+      var html = template(this.model.attributes);
+      this.$el.html(html);
+    },
+    close: function() {
+      this.remove();
+    },
+    edit: function() {
+      var template = _.template($("#challengeEditModal-template").html());
+      var html = template(this.model.attributes);
+      this.$el.html(html);
+    },
+    save: function() {
+      var description = $("#description").val();
+      this.model.set({description:description});
+      this.model.save();
+    }   
+  });
   
   /**
    * The ChallengesRowView listens for changes to its model, re-rendering.
@@ -36,12 +62,12 @@
     },
     
     showOneChallenge: function() {      
-      //var modalView = new ModalView({model: this.model});
-      //modalView.show();     
+      var modalView = new ChallengeModalView({model: this.model});
+      modalView.show();     
     }
   });
   
-  window.ChallengesView = Backbone.View.extend({
+  ChallengesView = Backbone.View.extend({
     initialize: function() { 
     },
     
