@@ -51,7 +51,7 @@
     },  
     
     addOne: function(model) {
-      var challengesRowView = new ChallengesRowView({model:model});
+      var challengesRowView = new ChallengesRowView({model: model});
     
       challengesRowView.render();
       this.$el.append(challengesRowView.el);     

@@ -6,7 +6,7 @@ $(function() {
   /**
    * handles show and edit of an activity
    */
-	ModalView = Backbone.View.extend({
+	ActivityModalView = Backbone.View.extend({
 		initialize: function() {
 			$(document.body).append(this.$el);
 			this.model.on("change", this.show, this); //upon model change, rerender view;
@@ -17,7 +17,7 @@ $(function() {
 			'click #save'  : 'save',
 		},
 		show: function() {
-			var template = _.template($("#activityViewModal-template").html());
+			var template = _.template($("#activityShowModal-template").html());
 			var html = template(this.model.attributes);
 			this.$el.html(html);
 		},
@@ -44,7 +44,7 @@ $(function() {
     
     initialize: function() {
       this.model.bind('change', this.render, this);
-      this.modelData = this.model.attributes;
+      //this.modelData = this.model.attributes;
     },
     
     // Cache the template function for a single item.
@@ -52,7 +52,7 @@ $(function() {
     
     // Re-render the contents of the activity
     render: function() {
-      var html = this.template({name: this.modelData.name, description: this.modelData.description});   
+      var html = this.template({name: this.model.get('name'), description: this.model.get('description')});   
       this.$el.html(html);
     },
 
@@ -62,7 +62,7 @@ $(function() {
     },
     
     showOneActivity: function() {      
-      var modalView = new ModalView({model: this.model});
+      var modalView = new ActivityModalView({model: this.model});
       modalView.show();     
     }
   });
@@ -77,7 +77,7 @@ $(function() {
     },
 
     addOne: function(model) {
-      var activitiesRowView = new ActivitiesRowView({model:model});
+      var activitiesRowView = new ActivitiesRowView({model: model});
     
       activitiesRowView.render();
       this.$el.append(activitiesRowView.el);      
