@@ -12,7 +12,7 @@ class UrlMappings {
     }
 
     "/activityAPI"(controller: "activityAPI") {
-      action = [GET: "list"]
+      action = [GET: "list", POST: "save"]
     }
 
     "/activityAPI/$id"(controller: "activityAPI") {
@@ -21,7 +21,8 @@ class UrlMappings {
       constraints { id(matches: /\d+/) }
     }
 
-    "/$controller/$action?/$id?"{ constraints { // apply constraints here
+    "/$controller/$action?/$id?"{ constraints {
+        // apply constraints here
       } }
 
     "/"(view:"/index")
