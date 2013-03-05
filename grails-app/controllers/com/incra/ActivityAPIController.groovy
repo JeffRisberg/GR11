@@ -39,7 +39,7 @@ class ActivityAPIController {
   }
 
   def update = {
-    println request.JSON
+    println "update " + params.id
     def activity = Activity.findById(params.id)
     println request.JSON
     bindData(activity, request.JSON)
