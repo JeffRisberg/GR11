@@ -11,6 +11,7 @@ class BootStrap {
     Date nowPlus4 = now + 4
     Date nowPlus30 = now + 30
     Date nowPlus40 = now + 40
+    Date nowPlus70 = now + 70
 
     Activity activity
     Challenge challenge
@@ -47,6 +48,10 @@ class BootStrap {
     challenge.addToTeams(challengeTeam)
     challengeTeam = new ChallengeTeam(name: "Blue", challenge: challenge)
     challenge.addToTeams(challengeTeam)
+    challenge.save()
+
+    challenge = new Challenge(name: "Challenge w/no Teams, Acts", description: "This one should save cleanly",
+    startDate: nowPlus4, endDate: nowPlus40)
     challenge.save()
   }
 
