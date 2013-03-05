@@ -18,4 +18,11 @@ class ActivityAPIController {
     println "" + allActivities.size() + " activities"
     render( allActivities as JSON )
   }
+  
+  def update={
+	 println request.JSON
+	 def activity = Activity.findById(params.id)
+	 bindData(activity, request.JSON)
+	 render(activity.save() as JSON )
+  }
 }

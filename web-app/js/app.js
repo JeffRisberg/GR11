@@ -72,15 +72,15 @@ $(function(){
     },
     
     showActivities: function() {
-      var self=this;
-     
+    
       $(".panel").hide();    
       $("#activities_panel").show();     
       $("#menu a").removeClass("active");
       $("#activities_button").addClass("active");
       
-      this.activitiesView = new ActivitiesView({collection:this.activities});       
-      $('#activity-tbody').html( this.activitiesView.render().$el);
+      activitiesView = new ActivitiesView({collection:this.activities}); 
+      activitiesView.render();
+      $('#activity-tbody').html(activitiesView.el);
      // self.activitiesView.updateFrom(self.activities);
     },
     

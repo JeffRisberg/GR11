@@ -6,60 +6,88 @@ $(function() {
 	ActivitiesRowView = Backbone.View.extend({
 		// The ActivitiesRowView listens for changes to its model, re-rendering.
 		initialize : function() {
-			// this.model.bind('change', this.render, this);//bind th event to model
-			// this.model.bind('destroy', this.remove, this);
-			this.modelData = this.model.toJSON();
+			this.model.bind('change', this.render, this);
+			//this.model.bind('destroy', this.remove, this);
+			this.modelData = this.model.attributes;
 		},
 		tagName : "tr",
 		// Cache the template function for a single item.
 		template : _.template($('#activitiesRow-template').html()),
 		// Re-render the contents of the activity
 		render : function() {
-			this.$el.html(this.template(this.modelData));// change to html in future
-			return this;
+			var html=this.template({name:this.modelData.name, description:this.modelData.description});		
+			this.$el.html(html);
 		},
 
 		// The DOM events specific to a activity.
 		events : {
-			// "dblclick div.activity-message" : "edit",
-			// "click span.activity-destroy" : "clear",
-			// "keypress .activity-input" : "updateOnEnter"
-			"click td" : "viewOneActivity"
+			"click td.name" : "viewOneActivity"
 		},
 		viewOneActivity : function() {
-			alert(this.modelData.name);
+			//alert(this.modelData.name);
+			var modalView=new ModalView({model:this.model});
+			modalView.view();
+			
 		}
 	});
 
 	ActivitiesView = Backbone.View.extend({
 
 		initialize : function() {
-		//	 this.base = $('#activity-tbody');
 		},
 		tagName : "tbody",
 		// will be passed in through calling constructor
 		render : function() {
-			var self = this;
-			//console.log(this);
-			//console.log(this.collection);
-			this.collection.each(function(i) {
-				var activitiesRowView = new ActivitiesRowView({
-					model : i
-				});
-				self.$el.append(activitiesRowView.render().$el); 
-			});
-			return this;
+			this.collection.each(this.addOne,this);
 		},
 
-	//could get rid of this function in future if use render
-	 /*updateFrom: function(collection) { 
-		 this.base.empty();
-	  
-		 var self=this; 
-		 collection.each(function(i) {
-			 var activitiesRowView = new ActivitiesRowView({model: i}); 
-			 self.base.append(activitiesRowView.render().$el); 
-		 });
-	  }*/
+		addOne:function(model){
+			var activityRowView=new ActivitiesRowView({model:model});
+		
+			//$(document.body).append(modalView);
+			activityRowView.render();
+			this.$el.append(activityRowView.el); 
+			
+		}
 	});
+	
+	
+	ModalView=Backbone.View.extend({
+		initialize:function(){
+			$(document.body).append(this.$el);
+			this.model.on("change", this.view,this );//upon model chagnge, rerender view;
+		},
+		events:{
+			'click #close':'close',
+			'click #edit':'edit',
+			'click #save':'save',
+		},
+		//template:_.template($("#activityViewModal-template").html()),//to be passed in;
+		view:function(){
+			var template=_.template($("#activityViewModal-template").html());
+			var html=template(this.model.attributes);
+			this.$el.html(html);
+			
+		},
+		close:function(){
+			this.remove();
+		},
+		edit:function(){
+			var template=_.template($("#activityEditModal-template").html());
+			var html=template(this.model.attributes);
+			this.$el.html(html);
+		},
+		save:function(){
+			var description=$("#description").val();
+			this.model.set({description:description});
+			this.model.save();
+		}
+		
+	});
+	
+
+	
+	
+	
+	
 });

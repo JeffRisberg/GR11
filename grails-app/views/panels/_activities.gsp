@@ -30,3 +30,29 @@
 <script type="text/template" id="activitiesRow-template">
 <td class="name">{{name}}</td><td>{{description}}</td>
 </script>
+
+<script type="text/template" id="activityViewModal-template">
+ <div class="modal">
+        <div class="modal-header"><h3>View {{name}}</h3></div>
+        <div class="modal-body">
+              Description:  {{description}}
+        </div>
+       <div class="modal-footer">
+         <a class="btn" id="edit">Edit</a>
+         <a id="close" class="btn">Close</a></div>
+       </div>
+ </div>
+</script>
+
+<script type="text/template" id="activityEditModal-template">
+ <div class="modal">
+        <div class="modal-header"><h3>Edit {{name}}</h3></div>
+        <div class="modal-body">
+             Description: <input id="description" type="text" value={{description}}></input>
+        </div>
+       <div class="modal-footer">
+         <a class="btn" id="save">Save</a>
+         <a id="close" class="btn">Close</a></div>
+       </div>
+ </div>
+</script>
