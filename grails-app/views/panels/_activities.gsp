@@ -1,16 +1,15 @@
-<div id="activities_panel" class="panel">
+<div id="activities-panel" class="panel">
   <h1>This is the Activities Panel</h1>
   <div style="background: #eee; width: 400px; margin: 20px 0px">
-    <table id="activity-list">
+    <table id="activities-list">
 	  	<thead>
 	  		<tr>
-	  		<th>name</th>
-	  		<th>description</th>
+	  		  <th>Name</th>
+	  		  <th>Description</th>
 	  		</tr>
-	  	</thead>
-	  	<tbody id="activity-tbody">
-	  		
-	  	</tbody>
+	  	</thead>	
+	  	<tbody id="activities-tbody">
+	  	</tbody>  	
  	 </table>
   
   </div>      
@@ -28,7 +27,8 @@
 <!-- Templates -->
 
 <script type="text/template" id="activitiesRow-template">
-<td class="name">{{name}}</td><td>{{description}}</td>
+  <td class="name">{{name}}</td>
+  <td>{{description}}</td>
 </script>
 
 <script type="text/template" id="activityViewModal-template">

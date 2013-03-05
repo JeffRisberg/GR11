@@ -6,7 +6,7 @@
  }
 </style>
 
-<div id="track_panel" class="panel">
+<div id="track-panel" class="panel">
   
   <h1>Track</h1>
   

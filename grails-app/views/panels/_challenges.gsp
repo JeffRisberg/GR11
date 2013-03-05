@@ -1,4 +1,4 @@
-<div id="challenges_panel" class="panel">
+<div id="challenges-panel" class="panel">
 	 <h1>This is the Challenges Panel</h1>
 	 
 	 <div style="background: #eee; width: 400px; margin: 20px 0px">
@@ -17,10 +17,8 @@
 
 <!-- Templates -->
 
-<script type="text/template" id="challengesRow-template">
-  <tr>
+<script type="text/template" id="challengesRow-template">  
     <td class="challenge">{{ name }}</td>
     <td class="desc">{{ description }}</td>
-    <td class="challenge-destroy">Action</td>
-  </tr>
+    <td class="challenge-destroy">Action</td> 
 </script>

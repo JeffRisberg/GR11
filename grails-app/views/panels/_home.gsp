@@ -1,4 +1,4 @@
-<div id="home_panel" class="panel">
+<div id="home-panel" class="panel">
   
   <h1>Home</h1>
   

@@ -28,16 +28,17 @@ $(function(){
       this.homeView = new HomeView();  
       this.trackView = new TrackView();  
       
-     
-      this.challengesView = new ChallengesView();
+      this.activitiesView = new ActivitiesView(
+        {el: $('#activities-tbody'), collection: this.activities});     
+      this.challengesView = new ChallengesView(
+        {el: $('#challenges-tbody'), collection: this.challenges});
            
       this.showHome(); 
       
       _.templateSettings = {//this goes to global, here is global is the window obj. 
     	      interpolate : /\{\{(.+?)\}\}/g,
     	      evaluate : /\{!(.+?)!\}/g
-    	  };
-    	  
+    	  };    	  
        
       //alert("end AppView init");
     },
@@ -59,40 +60,36 @@ $(function(){
  
     showHome: function() {
       $(".panel").hide();  
-      $("#home_panel").show();  
+      $("#home-panel").show();  
       $("#menu a").removeClass("active");
       $("#home_button").addClass("active");      
     },
     
     showTrack: function() {
       $(".panel").hide();  
-      $("#track_panel").show();          
+      $("#track-panel").show();          
       $("#menu a").removeClass("active");
       $("#track_button").addClass("active"); 
     },
     
-    showActivities: function() {
-    
+    showActivities: function() {    
       $(".panel").hide();    
-      $("#activities_panel").show();     
+      $("#activities-panel").show();     
       $("#menu a").removeClass("active");
       $("#activities_button").addClass("active");
       
-      activitiesView = new ActivitiesView({collection:this.activities}); 
-      activitiesView.render();
-      $('#activity-tbody').html(activitiesView.el);
-     // self.activitiesView.updateFrom(self.activities);
+      this.activitiesView.render();     
     },
     
     showChallenges: function() {
       var self=this;
      
       $(".panel").hide();  
-      $("#challenges_panel").show();
+      $("#challenges-panel").show();
       $("#menu a").removeClass("active");
       $("#challenges_button").addClass("active"); 
       
-      self.challengesView.updateFrom(self.challenges);
+      this.challengesView.render(); 
     },
   });
   
