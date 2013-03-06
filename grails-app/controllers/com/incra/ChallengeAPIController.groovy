@@ -16,6 +16,7 @@ class ChallengeAPIController {
     println "index"
     List<Challenge> allChallenges = challengeService.getAll()
     println "" + allChallenges.size() + " challenges"
+    println allChallenges as JSON
     render( allChallenges as JSON )
   }
 
@@ -28,21 +29,21 @@ class ChallengeAPIController {
   def show = {
     println "show " + params.id
     def challenge = Challenge.findById(params.id)
-    render( challenge as JSON );
+    render( challenge as JSON )
   }
 
   def delete = {
     println "delete " + params.id
     def challenge = Challenge.findById(params.id)
     challenge?.delete()
-    render( challenge as JSON );
+    render( challenge as JSON )
   }
 
   def update = {
     println "update " + params.id
     def challenge = Challenge.findById(params.id)
     println request.JSON
-    bindData(challenge, request.JSON, [exclude: ['startDate', 'endDate']])
+    bindData(challenge, request.JSON)
     render( challenge.save() as JSON )
   }
 }

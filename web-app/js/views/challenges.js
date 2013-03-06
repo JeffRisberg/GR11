@@ -9,7 +9,7 @@
   ChallengeModalView = Backbone.View.extend({
     initialize: function() {
       $(document.body).append(this.$el);
-      this.model.on("change", this.show, this); //upon model change, rerender view;
+      this.show();
     },
     events: {
       'click #close' : 'close',
@@ -30,9 +30,17 @@
       this.$el.html(html);
     },
     save: function() {
+      var startDate = $("#startDate").val();
+      this.model.set({startDate: startDate});
+      
+      var endDate = $("#endDate").val();
+      this.model.set({endDate: endDate});
+      
       var description = $("#description").val();
-      this.model.set({description:description});
+      this.model.set({description: description});
+      
       this.model.save();
+      this.show();
     }   
   });
   
@@ -44,7 +52,7 @@
     
     initialize: function() {
       this.model.bind('change', this.render, this);
-      this.modelData = this.model.attributes;
+      //this.modelData = this.model.attributes;
     },
     
     // Cache the template function for a single item.
@@ -52,7 +60,11 @@
     
     // Re-render the contents of the challenge
     render: function() {
-      var html = this.template({name: this.modelData.name, description: this.modelData.description});   
+      var html = this.template(
+        {name: this.model.get('name'), 
+         startDate: this.model.get('startDate'), 
+         endDate: this.model.get('endDate'),
+         description: this.model.get('description')});   
       this.$el.html(html);
     },
 

@@ -1,3 +1,5 @@
+import grails.converters.JSON
+
 import com.incra.Activity
 import com.incra.Challenge
 import com.incra.ChallengeActivity
@@ -7,6 +9,12 @@ class BootStrap {
 
   def init = { servletContext ->
 
+    // Register JSON Marshallers
+    JSON.registerObjectMarshaller(Date) {
+      return it?.format("MM/dd/yyyy")
+    }
+
+    // Register initialization data
     Date now = new Date()
     Date nowPlus4 = now + 4
     Date nowPlus30 = now + 30
