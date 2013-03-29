@@ -24,23 +24,23 @@
     </tr>
     <tr>
       <td>Hike</td>
-      <td><input name="x1" /></td>
-      <td><input name="x2" /></td>
-      <td><input name="x3" /></td>
-      <td><input name="x4" /></td>
-      <td><input name="x5" /></td>
-      <td><input name="x6" /></td>
-      <td><input name="x7" /></td>          
+      <td><input name="x1" style="width:30px" /></td>
+      <td><input name="x2" style="width:30px"/></td>
+      <td><input name="x3" style="width:30px"/></td>
+      <td><input name="x4" style="width:30px" /></td>
+      <td><input name="x5" style="width:30px" /></td>
+      <td><input name="x6" style="width:30px" /></td>
+      <td><input name="x7" style="width:30px" /></td>          
     </tr>
     <tr>
       <td>Dance</td>
-      <td><input name="x1" /></td>
-      <td><input name="x2" /></td>
-      <td><input name="x3" /></td>
-      <td><input name="x4" /></td>
-      <td><input name="x5" /></td>
-      <td><input name="x6" /></td>
-      <td><input name="x7" /></td>          
+      <td><input name="x1" style="width:30px" /></td>
+      <td><input name="x2" style="width:30px" /></td>
+      <td><input name="x3" style="width:30px" /></td>
+      <td><input name="x4" style="width:30px" /></td>
+      <td><input name="x5" style="width:30px" /></td>
+      <td><input name="x6" style="width:30px" /></td>
+      <td><input name="x7" style="width:30px" /></td>          
     </tr>
     <tr>
       <td>Skip Sweets</td>
