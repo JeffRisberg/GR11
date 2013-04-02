@@ -36,7 +36,7 @@ $(function(){
       this.wallUsersView = new WallUsersView();  
       this.wallSystemView = new WallSystemView();  
       
-      this.showHome(); 
+     // this.showHome(); 
       
       _.templateSettings = {//this goes to global, here is global is the window obj. 
     	      interpolate : /\{\{(.+?)\}\}/g,
@@ -83,40 +83,35 @@ $(function(){
       //$("#menu a").removeClass("active");
       $("#activities_button").toggleClass("active");
       
-      this.activitiesView.render();     
+      //this.activitiesView.render();     
     },
     
     showChallenges: function() {
-      var self=this;
      
       //$(".panel").hide();  
       $("#challenges-panel").toggle();
       //$("#menu a").removeClass("active");
       $("#challenges_button").toggleClass("active"); 
       
-      this.challengesView.render(); 
+     // this.challengesView.render(); 
     },
     
      showWallUsers: function() {
-      var self=this;
-     
-      $(".panel").hide();  
-      $("#wallUsers-panel").show();
-      $("#menu a").removeClass("active");
-      $("#challenges_button").addClass("active"); 
+     //$(".panel").hide();  
+      $("#wallUsers-panel").toggle();
+     // $("#menu a").removeClass("active");
+      $("#wallUsers_button").toggleClass("active"); 
       
-      this.wallUsersView.render(); 
+     // this.wallUsersView.render(); 
     },
     
      showWallSystem: function() {
-      var self=this;
-     
-      $(".panel").hide();  
-      $("#wallSystem-panel").show();
-      $("#menu a").removeClass("active");
-      $("#challenges_button").addClass("active"); 
+      //$(".panel").hide();  
+      $("#wallSystem-panel").toggle();
+     // $("#menu a").removeClass("active");
+      $("#wallSystem_button").toggleClass("active"); 
       
-      this.wallSystemView.render(); 
+    //  this.wallSystemView.render(); 
     },
   });
   
