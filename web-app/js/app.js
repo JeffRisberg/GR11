@@ -80,7 +80,7 @@ $(function(){
       $("#menu a").removeClass("active");
       $("#activities_button").addClass("active");
       
-      //this.activitiesView.render();     
+      this.activitiesView.render();     
     },
     
     showChallenges: function() {
@@ -91,7 +91,7 @@ $(function(){
       $("#menu a").removeClass("active");
       $("#challenges_button").addClass("active"); 
       
-      //this.challengesView.render(); 
+      this.challengesView.render(); 
     },
     
      showWallUsers: function() {
@@ -102,7 +102,7 @@ $(function(){
       $("#menu a").removeClass("active");
       $("#challenges_button").addClass("active"); 
       
-      this.wallUsersView.render(); 
+      //this.wallUsersView.render(); 
     },
     
      showWallSystem: function() {
@@ -113,7 +113,7 @@ $(function(){
       $("#menu a").removeClass("active");
       $("#challenges_button").addClass("active"); 
       
-      this.wallSystemView.render(); 
+      //this.wallSystemView.render(); 
     },
   });
   
