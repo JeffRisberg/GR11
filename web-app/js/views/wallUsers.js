@@ -10,7 +10,7 @@
       evaluate : /\{!(.+?)!\}/g
   };
   
-  window.WallUsers = Backbone.View.extend({
+  window.WallUsersView = Backbone.View.extend({
     // attach
   });
 });

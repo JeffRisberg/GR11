@@ -32,7 +32,10 @@ $(function(){
         {el: $('#activities-tbody'), collection: this.activities});     
       this.challengesView = new ChallengesView(
         {el: $('#challenges-tbody'), collection: this.challenges});
-           
+      
+      this.wallUsersView = new WallUsersView();  
+      this.wallSystemView = new WallSystemView();  
+      
       this.showHome(); 
       
       _.templateSettings = {//this goes to global, here is global is the window obj. 
@@ -50,8 +53,8 @@ $(function(){
       "click #home_button":       "showHome",
       "click #track_button":      "showTrack",
       "click #activities_button": "showActivities",
-      "click #challenges_button": "showChallenges"  
-      "click #wallUsers_button":  "showWallUsers"  
+      "click #challenges_button": "showChallenges",  
+      "click #wallUsers_button":  "showWallUsers",  
       "click #wallSystem_button": "showWallSystem"  
     },
    
@@ -102,7 +105,7 @@ $(function(){
       $("#menu a").removeClass("active");
       $("#challenges_button").addClass("active"); 
       
-      //this.wallUsersView.render(); 
+      this.wallUsersView.render(); 
     },
     
      showWallSystem: function() {
@@ -113,7 +116,7 @@ $(function(){
       $("#menu a").removeClass("active");
       $("#challenges_button").addClass("active"); 
       
-      //this.wallSystemView.render(); 
+      this.wallSystemView.render(); 
     },
   });
   

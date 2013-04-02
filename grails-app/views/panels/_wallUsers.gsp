@@ -1,11 +1,11 @@
-<div id="wallSystem-panel" class="panel">
+<div id="wallUsers-panel" class="panel">
   
-  <h1>This the wall for the system to send out messages</h1>
+ <h1>This is the wall for users to communicate</h1>
   
- <p>A has passed B</p>
- <p>A is winning</p>
- <p>B has joined</p>
- <p>A has tracked</p>
- <p>A has joined</p>
+ <p>Lets hike at lunch</p>
+ <p>Team B is great</p>
+ <p>Anybody want to join me?</p>
+ <p>I like to track</p>
+ <p>GR11 is fun</p>
  
 </div>

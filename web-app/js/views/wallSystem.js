@@ -10,7 +10,7 @@
       evaluate : /\{!(.+?)!\}/g
   };
   
-  window.WallSystem = Backbone.View.extend({
+  window.WallSystemView = Backbone.View.extend({
     // attach
   });
 });
