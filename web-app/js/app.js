@@ -64,24 +64,24 @@ $(function(){
     },
  
     showHome: function() {
-      $(".panel").hide();  
-      $("#home-panel").show();  
-      $("#menu a").removeClass("active");
-      $("#home_button").addClass("active");      
+      //$(".panel").hide();  
+      $("#home-panel").toggle();  
+      //$("#menu a").removeClass("active");
+      $("#home_button").toggleClass("active");      
     },
     
     showTrack: function() {
-      $(".panel").hide();  
-      $("#track-panel").show();          
-      $("#menu a").removeClass("active");
-      $("#track_button").addClass("active"); 
+      //$(".panel").hide();  
+      $("#track-panel").toggle();          
+      //$("#menu a").removeClass("active");
+      $("#track_button").toggleClass("active"); 
     },
     
     showActivities: function() {    
-      $(".panel").hide();    
-      $("#activities-panel").show();     
-      $("#menu a").removeClass("active");
-      $("#activities_button").addClass("active");
+      //$(".panel").hide();    
+      $("#activities-panel").toggle();     
+      //$("#menu a").removeClass("active");
+      $("#activities_button").toggleClass("active");
       
       this.activitiesView.render();     
     },
@@ -89,10 +89,10 @@ $(function(){
     showChallenges: function() {
       var self=this;
      
-      $(".panel").hide();  
-      $("#challenges-panel").show();
-      $("#menu a").removeClass("active");
-      $("#challenges_button").addClass("active"); 
+      //$(".panel").hide();  
+      $("#challenges-panel").toggle();
+      //$("#menu a").removeClass("active");
+      $("#challenges_button").toggleClass("active"); 
       
       this.challengesView.render(); 
     },
