@@ -7,5 +7,8 @@
 	  <a id="track_button"      class="btn" href="#">Track</a>
 	  <a id="activities_button" class="btn" href="#">Activities</a>
 	  <a id="challenges_button" class="btn" href="#">Challenges</a>
+	  <a id="wallUsers_button"  class="btn" href="#">User's Wall</a>
+	  <a id="wallSystem_button" class="btn" href="#">System Wall</a>
+	  
 	</div>
 </div>

@@ -51,6 +51,8 @@ $(function(){
       "click #track_button":      "showTrack",
       "click #activities_button": "showActivities",
       "click #challenges_button": "showChallenges"  
+      "click #wallUsers_button":  "showWallUsers"  
+      "click #wallSystem_button": "showWallSystem"  
     },
    
     render: function() {   
@@ -78,7 +80,7 @@ $(function(){
       $("#menu a").removeClass("active");
       $("#activities_button").addClass("active");
       
-      this.activitiesView.render();     
+      //this.activitiesView.render();     
     },
     
     showChallenges: function() {
@@ -89,7 +91,29 @@ $(function(){
       $("#menu a").removeClass("active");
       $("#challenges_button").addClass("active"); 
       
-      this.challengesView.render(); 
+      //this.challengesView.render(); 
+    },
+    
+     showWallUsers: function() {
+      var self=this;
+     
+      $(".panel").hide();  
+      $("#wallUsers-panel").show();
+      $("#menu a").removeClass("active");
+      $("#challenges_button").addClass("active"); 
+      
+      this.wallUsersView.render(); 
+    },
+    
+     showWallSystem: function() {
+      var self=this;
+     
+      $(".panel").hide();  
+      $("#wallSystem-panel").show();
+      $("#menu a").removeClass("active");
+      $("#challenges_button").addClass("active"); 
+      
+      this.wallSystemView.render(); 
     },
   });
   
