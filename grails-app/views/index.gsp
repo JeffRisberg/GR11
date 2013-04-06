@@ -25,7 +25,8 @@
    <g:include view="panels/_challenges.gsp"/>   
    <g:include view="panels/_wallUsers.gsp"/>     
    <g:include view="panels/_wallSystem.gsp"/> 
-      
+   
+   <div style="clear:both"></div>
    <g:include view="_footer.gsp"/>
    </div>
   </body>
