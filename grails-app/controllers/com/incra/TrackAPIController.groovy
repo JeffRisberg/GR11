@@ -19,4 +19,11 @@ class TrackAPIController {
     println "" + allActivities.size() + " activities"
     render( allActivities as JSON )
   }
+
+  def save = {
+    println "begin save"
+    println params
+    println request.JSON
+    println "end save"
+  }
 }

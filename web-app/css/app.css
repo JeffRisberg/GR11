@@ -37,30 +37,30 @@ body {
 }
 
 #container {
-	width: 900px;
-	margin: 0 auto 40px;
-	background: white;
-	padding: 20px;
-	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
-	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
-	box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+  width: 1100px;
+  margin: 0 auto;
 }
 
 #header #menu {
-  background: #eee;
   padding: 5px;
 }
 
-.panel {
-  //height: 400px;
+#adminHeader #menu {
   padding: 5px;
-  float: left;
+}
+
+.panel {  
+  padding: 5px;
+}
+
+.panel-title {
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .panel h1 {
   color: #333;
-  font-style: bold;
+  font-weight: bold;
 }
 
 .panel h2 {

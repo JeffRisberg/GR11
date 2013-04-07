@@ -1,9 +1,9 @@
 import grails.converters.JSON
 
 import com.incra.Activity
+import com.incra.ActivityEvent
 import com.incra.Challenge
 import com.incra.ChallengeActivity
-import com.incra.ChallengeTeam
 
 class BootStrap {
 
@@ -20,11 +20,15 @@ class BootStrap {
     Date nowPlus30 = now + 30
     Date nowPlus40 = now + 40
     Date nowPlus70 = now + 70
+    Date nowMinus1 = now - 1
+    Date nowMinus2 = now - 2
+    Date nowMinus3 = now - 3
+    Date nowMinus4 = now - 4
 
     Activity activity
     Challenge challenge
     ChallengeActivity challengeActivity
-    ChallengeTeam challengeTeam
+    ActivityEvent activityEvent
 
     activity = new Activity(name: "Walking", description: "Walking Desc")
     activity.save()
@@ -52,15 +56,41 @@ class BootStrap {
     activity = Activity.findByName("Walking")
     challengeActivity = new ChallengeActivity(challenge: challenge, activity: activity)
     challenge.addToActivities(challengeActivity)
-    challengeTeam = new ChallengeTeam(name: "Red", challenge: challenge)
-    challenge.addToTeams(challengeTeam)
-    challengeTeam = new ChallengeTeam(name: "Blue", challenge: challenge)
-    challenge.addToTeams(challengeTeam)
     challenge.save()
 
-    challenge = new Challenge(name: "Challenge w/no Teams, Acts", description: "This one should save cleanly",
-    startDate: nowPlus4, endDate: nowPlus40)
-    challenge.save()
+    activity = Activity.findByName("Biking")
+
+    activityEvent = new ActivityEvent(activity: activity)
+    activityEvent.activityResult = 10.5;
+    activityEvent.trackDate = now
+    activityEvent.save()
+    activityEvent = new ActivityEvent(activity: activity)
+    activityEvent.activityResult = 3.5;
+    activityEvent.trackDate = nowMinus1
+    activityEvent.save()
+    activityEvent = new ActivityEvent(activity: activity)
+    activityEvent.activityResult = 4.5;
+    activityEvent.trackDate = nowMinus3
+    activityEvent.save()
+
+    activity = Activity.findByName("Walking")
+
+    activityEvent = new ActivityEvent(activity: activity)
+    activityEvent.activityResult = 11.5;
+    activityEvent.trackDate = now
+    activityEvent.save()
+    activityEvent = new ActivityEvent(activity: activity)
+    activityEvent.activityResult = 9.5;
+    activityEvent.trackDate = nowMinus2
+    activityEvent.save()
+    activityEvent = new ActivityEvent(activity: activity)
+    activityEvent.activityResult = 10.5;
+    activityEvent.trackDate = nowMinus3
+    activityEvent.save()
+    activityEvent = new ActivityEvent(activity: activity)
+    activityEvent.activityResult = 9.5;
+    activityEvent.trackDate = nowMinus4
+    activityEvent.save()
   }
 
   def destroy = {

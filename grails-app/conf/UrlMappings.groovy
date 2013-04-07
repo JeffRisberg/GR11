@@ -25,6 +25,7 @@ class UrlMappings {
         // apply constraints here
       } }
 
+    "/admin"(view:"/admin")
     "/"(view:"/index")
     "500"(view:'/error')
   }

@@ -1,6 +1,10 @@
 <div id="activities-panel" class="panel">
-  <h1>This is the Activities Panel</h1>
-  
+  <div class="panel-title">Activity Administration</div>
+ 
+  <div id="create-activity">
+    <a class="btn" style="margin-bottom: 10px">Create New Activity &raquo;</a>
+  </div>
+   
   <div style="margin: 20px 0px">
     <table id="activities-list">
 	  	<thead>
@@ -15,23 +19,9 @@
  	 </table>  
   </div>      
   
-  <div id="create-activity">
-    <input id="new-activity" placeholder="Activity name" type="text" />
-    <a class="btn" style="margin-bottom: 10px">Create</a>
-  </div>
-  
-  <div id="go-activity">    
-    <a class="btn">Go</a>
-  </div> 
 </div>
 
 <!-- Templates -->
-
-<script type="text/template" id="activitiesRow-template">
-  <td class="name">{{name}}</td>
-  <td class="desc">{{description}}</td>
-  <td class="activity-destroy">Delete</td>
-</script>
 
 <script type="text/template" id="activityShowModal-template">
   <div class="modal">
@@ -57,4 +47,10 @@
      <a id="close" class="btn">Close</a></div>
     </div>
  </div>
+</script>
+
+<script type="text/template" id="activitiesRow-template"> 
+  <td class="name">{{name}}</td>
+  <td class="desc">{{description}}</td>
+  <td class="activity-destroy">Delete</td> 
 </script>

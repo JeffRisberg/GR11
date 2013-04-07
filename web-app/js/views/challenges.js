@@ -60,12 +60,7 @@
     
     // Re-render the contents of the challenge
     render: function() {
-      var html = this.template(
-        {name: this.model.get('name'), 
-         startDate: this.model.get('startDate'), 
-         endDate: this.model.get('endDate'),
-         description: this.model.get('description')});   
-      this.$el.html(html);
+      $(this.el).html(this.template(this.model.toJSON()));
     },
 
     // The DOM events specific to a challenge.
@@ -80,13 +75,24 @@
   });
   
   ChallengesView = Backbone.View.extend({
-    initialize: function() { 
+     initialize: function() {
+      this.base = $('#challenges-panel');
+      this.tbody = $('#challenges-tbody');
     },
     
-    render: function() {  
-      this.$el.empty();
-      this.collection.each(this.addOne, this);
-    },  
+    update: function() {   
+      this.tbody.empty();
+     
+      var self=this;
+      this.collection.each(function(i) {           
+        var challengesRowView = new ChallengesRowView({model: i});  
+        challengesRowView.render()
+        self.tbody.append(challengesRowView.el);       
+      });
+    },
+
+    events: {
+    },
     
     addOne: function(model) {
       var challengesRowView = new ChallengesRowView({model: model});

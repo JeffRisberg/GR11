@@ -8,7 +8,7 @@
 
 <div id="track-panel" class="panel">
   
-  <h1>Track</h1>
+  <div class="panel-title">Track</div>
   
   <div style="background: #eee; padding: 5px;">
   <table>
@@ -54,6 +54,12 @@
     </tr>
   </table>
   </div>
-  <a class="btn">Save</a>
+  <div>
+  <label>Class Id</label><input id="classId" type="text" />
+  </div>
+  <div>
+  <label>Building Id</label><input id="buildingId" type="text" />
+  </div>
+  <a id="save" class="btn">Save</a>
  
 </div>

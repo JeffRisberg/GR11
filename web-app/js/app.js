@@ -18,25 +18,11 @@ $(function(){
 
     initialize: function() {          
       //alert("begin AppView init");
-      
-      this.activities = new Activities();
-      this.challenges = new Challenges();
-            
-      this.activities.fetch();
-      this.challenges.fetch();
-          
-      this.homeView = new HomeView();  
-      this.trackView = new TrackView();  
-      
-      this.activitiesView = new ActivitiesView(
-        {el: $('#activities-tbody'), collection: this.activities});     
-      this.challengesView = new ChallengesView(
-        {el: $('#challenges-tbody'), collection: this.challenges});
-      
-      this.wallUsersView = new WallUsersView();  
-      this.wallSystemView = new WallSystemView();  
-      
-     // this.showHome(); 
+                                         
+      this.homeView = new HomeView();    
+      this.trackView = new TrackView();       
+     
+      this.showHome(); 
       
       _.templateSettings = {//this goes to global, here is global is the window obj. 
     	      interpolate : /\{\{(.+?)\}\}/g,
@@ -51,11 +37,7 @@ $(function(){
     el: $("#header"),
     events: {
       "click #home_button":       "showHome",
-      "click #track_button":      "showTrack",
-      "click #activities_button": "showActivities",
-      "click #challenges_button": "showChallenges",  
-      "click #wallUsers_button":  "showWallUsers",  
-      "click #wallSystem_button": "showWallSystem"  
+      "click #track_button":      "showTrack"
     },
    
     render: function() {   
@@ -64,58 +46,22 @@ $(function(){
     },
  
     showHome: function() {
-      //$(".panel").hide();  
+      $(".panel").hide();  
       $("#home-panel").toggle();  
-      //$("#menu a").removeClass("active");
+      $("#menu a").removeClass("active");
       $("#home_button").toggleClass("active");      
+      
+      this.homeView.update();
     },
     
     showTrack: function() {
-      //$(".panel").hide();  
+      $(".panel").hide();  
       $("#track-panel").toggle();          
-      //$("#menu a").removeClass("active");
+      $("#menu a").removeClass("active");
       $("#track_button").toggleClass("active"); 
-    },
-    
-    showActivities: function() {    
-      //$(".panel").hide();    
-      $("#activities-panel").toggle();     
-      //$("#menu a").removeClass("active");
-      $("#activities_button").toggleClass("active");
-      
-      //this.activitiesView.render();     
-    },
-    
-    showChallenges: function() {
-     
-      //$(".panel").hide();  
-      $("#challenges-panel").toggle();
-      //$("#menu a").removeClass("active");
-      $("#challenges_button").toggleClass("active"); 
-      
-     // this.challengesView.render(); 
-    },
-    
-     showWallUsers: function() {
-     //$(".panel").hide();  
-      $("#wallUsers-panel").toggle();
-     // $("#menu a").removeClass("active");
-      $("#wallUsers_button").toggleClass("active"); 
-      
-     // this.wallUsersView.render(); 
-    },
-    
-     showWallSystem: function() {
-      //$(".panel").hide();  
-      $("#wallSystem-panel").toggle();
-     // $("#menu a").removeClass("active");
-      $("#wallSystem_button").toggleClass("active"); 
-      
-    //  this.wallSystemView.render(); 
     },
   });
   
   // Finally, we kick things off by creating the **App**.
-  window.App = new AppView;
-  
+  window.App = new AppView;  
 });

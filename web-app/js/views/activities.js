@@ -1,8 +1,15 @@
 /**
- * Contains ActivitiesView and ActivitiesRowView
+ * Contains ActivityModelView, ActivitiesRowView and ActivitiesView
  */
 
 $(function() {
+  
+  // this sets up the marker strings needed for interpolating {{ }} and evaluation {! !}
+  _.templateSettings = {
+      interpolate : /\{\{(.+?)\}\}/g,
+      evaluate : /\{!(.+?)!\}/g
+  };
+  
   /**
    * Handles show and edit of an activity
    */
@@ -52,8 +59,7 @@ $(function() {
     
     // Re-render the contents of the activity
     render: function() {
-      var html = this.template({name: this.model.get('name'), description: this.model.get('description')});   
-      this.$el.html(html);
+      $(this.el).html(this.template(this.model.toJSON()));
     },
 
     // The DOM events specific to an activity.
@@ -69,13 +75,24 @@ $(function() {
   
 	ActivitiesView = Backbone.View.extend({
     initialize: function() {
+      this.base = $('#activities-panel');
+      this.tbody = $('#activities-tbody');
     },
     
-    render: function() {  
-      this.$el.empty();
-      this.collection.each(this.addOne, this);
+    update: function() {   
+      this.tbody.empty();
+
+      var self=this;
+      this.collection.each(function(i) {             
+        var activitiesRowView = new ActivitiesRowView({model: i});  
+        activitiesRowView.render();
+        self.tbody.append(activitiesRowView.el);     
+      });
     },
 
+    events: {
+    },
+    
     addOne: function(model) {
       var activitiesRowView = new ActivitiesRowView({model: model});
     

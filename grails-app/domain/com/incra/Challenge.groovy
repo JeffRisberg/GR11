@@ -1,5 +1,6 @@
 package com.incra
 
+
 class Challenge {
 
   String name
@@ -9,7 +10,6 @@ class Challenge {
 
   static hasMany = [
     activities: ChallengeActivity,
-    teams: ChallengeTeam
   ]
 
   static constraints = {
@@ -22,7 +22,6 @@ class Challenge {
 
     sb.append("Challenge[name=" + name)
     sb.append(", activities=" + activities)
-    sb.append(", teams=" + teams)
     sb.append("]")
 
     sb.toString()
