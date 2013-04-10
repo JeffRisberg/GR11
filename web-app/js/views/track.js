@@ -13,7 +13,7 @@
   // Add behavior to the Track screen
   window.TrackView = Backbone.View.extend({
     initialize: function() {
-     // nothing to right now
+     // nothing to do right now    
     },
     
     el: $("#track-panel"),
@@ -22,7 +22,7 @@
       "click #save": "saveTrack",
     },
       
-    saveTrack: function() {
+    saveTrack: function() {     
      var buildingId = $("#buildingId").val();
      var classId = $("#classId").val();
     

@@ -51,7 +51,7 @@ $(function(){
       $("#menu a").removeClass("active");
       $("#home_button").toggleClass("active");      
       
-      this.homeView.update();
+      //this.homeView.update();
     },
     
     showTrack: function() {

@@ -20,11 +20,11 @@
       this.tbody.empty();
      
       var self=this;
-      this.collection.each(function(i) {           
-        var challengesRowView = new HomeChallengesRowView({model: i});  
-        challengesRowView.render()
-        self.tbody.append(challengesRowView.el);       
-      });
+      //this.collection.each(function(i) {           
+      //  var challengesRowView = new HomeChallengesRowView({model: i});  
+      //  challengesRowView.render()
+      //  self.tbody.append(challengesRowView.el);       
+      //});
     },
 
     events: {
@@ -43,11 +43,11 @@
       // fetch here
       
       var self=this;
-      this.collection.each(function(i) {             
-        var activitiesRowView = new HomeActivitiesRowView({model: i});  
-        activitiesRowView.render();
-        self.tbody.append(activitiesRowView.el);     
-      });
+      //this.collection.each(function(i) {             
+      //  var activitiesRowView = new HomeActivitiesRowView({model: i});  
+      //  activitiesRowView.render();
+      //  self.tbody.append(activitiesRowView.el);     
+      //});
     },
 
     events: {
